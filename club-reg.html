@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/club-reg.css">
+  <!-- Google Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="./img/snt-icon.png">
+  <title>SnT - Club Registration</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" alt="" class=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto ">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#join-us">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#events-live">Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact-us">Contact</a>
+            </li>
+            <li class="nav-item" id="ogt">
+              <a class="nav-link" href="#events-live" class="ongoing"><strong>Register Now</strong></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container-fluid">
+      <div class="form-card">
+        <div class="registration-form">
+          <div class="form-head">
+            <h2>Club Registration</h2>
+          </div>
+          <div class="form-body">
+            <form class="needs-validation" id="stuRegForm" novalidate>
+              <div class="mb-3">
+                <label for="name" class="form-label">
+                  Name
+                </label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter your full name"
+                  required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+                <div class="invalid-feedback">
+                  Enter valid Name.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email1" class="form-label">
+                  Email (Personal)
+                </label>
+                <input type="email" name="personal_email" id="email1" class="form-control" placeholder="name@gmail.com"
+                  required pattern="[a-z][a-z0-9_.]*@(gmail).com$">
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+                <div class="invalid-feedback">
+                  Enter valid Email.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email2" class="form-label">
+                  Email (College)
+                </label>
+                <input type="email" name="college_email" id="email2" class="form-control" placeholder="b220000@skit.ac.in" 
+                required pattern="[a-z][a-z0-9_.]*@(skit).ac.in$">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                <div class="invalid-feedback">
+                  Enter valid Email.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="roll" class="form-label">
+                  Roll Number
+                </label>
+                <input type="text" name="roll_no" id="roll" class="form-control" placeholder="00ESKCS000" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+                <div class="invalid-feedback">
+                  Enter valid Roll Number.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">
+                  Phone Number
+                </label>
+                <div class="input-group">
+                  <div class="input-group-text">+91</div>
+                  <input type="tel" name="phone" id="phone" class="form-control" placeholder="12345 67890" required
+                    pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$">
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                    Enter valid Phone Number.
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="branch" class="form-label">
+                  Branch
+                </label>
+                <input type="text" name="branch" id="branch" class="form-control" placeholder="Enter your branch"
+                  required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+                <div class="invalid-feedback">
+                  Enter valid Branch.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="year" class="form-label">
+                  Year
+                </label>
+                <input type="number" name="year" id="year" class="form-control" placeholder="Enter your year" required
+                min="1" max="4">
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+                <div class="invalid-feedback">
+                  Enter valid Year.
+                </div>
+              </div>
+              <div class="w-12 pt-1">
+                <!-- <button id="regButton" type="submit" class="btn register-btn">Register</button> -->
+                <button type="submit" class="btn register-btn" id="liveToastBtn">Register</button>
+                <div id="submit-toast"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="form-img">
+          <img src="./img/background3.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </main>
+  <!------------- Footer------------ -->
+  <footer id="contact-us" class="page-footer font-small blue pt-4">
+    <!-- Footer Links -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-3 mx-auto text-center footer-top-div">
+          <!-- Content -->
+          <img class=" footer-logo" src="img/logo.png" alt="SNT-logo">
+          <div class="icons">
+            <a href="https://www.instagram.com/snt_club" target="_blank"><img src="img/social_logo/instagram.png"
+                alt="instagram"></a>
+            <a href="https://www.linkedin.com/company/sntclub" target="_blank"><img src="img/social_logo/linkedin.png"
+                alt="linkedin"></a>
+            <a href="https://github.com/snt-club" target="_blank"><img src="img/social_logo/github.png"
+                alt="github"></a>
+            <a href="https://www.youtube.com/channel/UCs7cNBZzRubgSe-zZJWif8A" target="_blank"><img
+                src="img/social_logo/youtube.png" alt="youtube"></a>
+            <a href="https://discord.gg/5EtXmVp3qM" target="_blank"><img src="img/social_logo/discord.png"
+                alt="discord"></a>
+          </div>
+        </div>
+
+        <div class="col-2 mx-auto footer-mid-div">
+          <!-- Links -->
+          <h5>S&T Club</h5>
+          <ul class="list-unstyled footer-links">
+            <li>
+              <a href="#join-us">About Us</a>
+            </li>
+            <li>
+              <a href="#copyright">Copyright</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-2 mx-auto footer-bottom-div">
+          <!-- Links -->
+          <h5>Resources</h5>
+          <ul class="list-unstyled footer-links">
+            <!--<li>
+              <a href="#dsa">DSA</a>
+            </li>-->
+            <li>
+              <a href="#python">Python</a>
+            </li>
+            <li>
+              <a href="#linux">Linux</a>
+            </li>
+            <li>
+              <a href="#amazon">C Language</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class=" col-2 mx-auto footer-mid-div">
+          <h5>Team</h5>
+          <ul class="list-unstyled footer-links">
+            <li>
+              <a href="#faculty-coordinator">Faculty Coordinators</a>
+            </li>
+            <li>
+              <a href="#student-coordinator">Student Coordinators</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-2 mx-auto footer-bottom-div">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled footer-links">
+            <li>
+              <a href="mailto:info.sntclub@gmail.com">info.sntclub@gmail.com</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <!-- Footer Links -->
+    <hr>
+    <!-- Copyright -->
+    <div id="copyright" class="footer-copyright text-center py-3">
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script>
+    const paragraph = `
+      <p>
+        &copy; Copyright ${new Date().getFullYear()} @ Science and Technology Club, SKIT Jaipur
+      </p>
+    `;
+    document.getElementById("copyright").innerHTML = paragraph;
+
+    const toastBehaviour = () => {
+      const init = () =>{
+        document.getElementById("sumbit-toast").innerHTML = 
+            `<div class="toast-container position-fixed top-0 start-0 p-3">
+                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                  <div class="toast-header">
+                    <strong class="me-auto">Submitted!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                  <div class="toast-body">
+                    Thank You for your Response.
+                  </div>
+                </div>
+              </div>`;
+      }
+      window.onload = init();
+      
+      
+    }
+
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation')
+      console.log(forms);
+      
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      });
+      var email = document.getElementById('email1');
+      email.oninput = () => {
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!re.test(email.value)) {
+          email.setCustomValidity("Invalid field.");
+          email.classList.add('is-invalid');
+        } else {
+          email.classList.remove('is-invalid');
+          email.setCustomValidity("")
+        }
+      };
+      var email = document.getElementById('email2');
+      email.oninput = () => {
+        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (!re.test(email.value)) {
+          email.setCustomValidity("Invalid field.");
+          email.classList.add('is-invalid');
+        } else {
+          email.classList.remove('is-invalid');
+          email.setCustomValidity("")
+        }
+      }
+
+      const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        const data = new FormData(event.target);
+
+        const value = Object.fromEntries(data.entries());
+
+        const response = await fetch('https://science-and-technology-club-e6uye89dc-nitya-s27.vercel.app/users/register', {
+          method: 'POST', // or 'PUT'
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(value),
+        });
+        if (response.ok){
+          toastBehaviour();
+        }
+        const result = response.json();
+        console.log(result);
+
+      }
+
+      document.getElementById("stuRegForm").addEventListener("submit", handleSubmit);
+
+    })()
+  </script>
+  <script>
+    // const toastTrigger = document.querySelector(".sumbit-toast")
+    const toastLiveExample = document.getElementById('liveToast')
+  if (toastTrigger) {
+    toastTrigger.addEventListener('click', () => {
+      const toast = new bootstrap.Toast(toastLiveExample)
+
+      toast.show()
+    })
+  }
+  </script>
+</body>
+
+</html>
