@@ -122,7 +122,7 @@
                     Looks good!
                   </div>
                   <div class="invalid-feedback">
-                    Enter valid Roll Number.
+                    Enter valid College ID.
                   </div>
                 </div>
                 <div class="mb-3">
@@ -132,7 +132,7 @@
                   <div class="input-group">
                     <div class="input-group-text">+91</div>
                     <input type="tel" name="phone" id="phone" class="form-control" placeholder="12345 67890" required
-                      pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$">
+                      pattern="^\d{10}$">
                     <div class="valid-feedback">
                       Looks good!
                     </div>
@@ -460,7 +460,7 @@
     (() => {
       // Fetch all the forms we want to apply custom Bootstrap validation styles to
       const forms = document.querySelectorAll(".needs-validation");
-      console.log(forms);
+      // console.log(forms);
 
       // Loop over them and prevent submission
       Array.from(forms).forEach((form) => {
@@ -477,6 +477,53 @@
           false
         );
       });
+
+
+      var phoneNo = document.getElementById("phone");
+      phoneNo.oninput = () => {
+        if (/^\d{10}$/.test(phoneNo.value)) {
+          regBtn.disabled = false;
+        } else {
+          regBtn.disabled = true;
+        }
+      }
+
+      var branch = document.getElementById('branch');
+      branch.oninput = () => {
+        if (branch.value.length > 0) {
+          regBtn.disabled = false;
+        } else {
+          regBtn.disabled = true;
+        }
+      }
+
+      var year = document.getElementById('year');
+      year.oninput = () => {
+        if (year.value.length > 0) {
+          regBtn.disabled = false;
+        } else {
+          regBtn.disabled = true;
+        }
+      }
+
+      var name = document.getElementById('name');
+      name.oninput = () => {
+        if (name.value.length > 0) {
+          regBtn.disabled = false;
+        } else {
+          regBtn.disabled = true;
+        }
+      }
+
+      var rollno = document.getElementById('roll');
+      rollno.oninput = () => {
+        if (rollno.value.length > 0) {
+          regBtn.disabled = false;
+        } else {
+          regBtn.disabled = true;
+        }
+      }
+
       var email = document.getElementById("email1");
       email.oninput = () => {
         const re =
@@ -484,9 +531,11 @@
         if (!re.test(email.value)) {
           email.setCustomValidity("Invalid field.");
           email.classList.add("is-invalid");
+          regBtn.disabled = true;
         } else {
           email.classList.remove("is-invalid");
           email.setCustomValidity("");
+          regBtn.disabled = false;
         }
       };
       var email = document.getElementById("email2");
@@ -496,8 +545,10 @@
         if (!re.test(email.value)) {
           email.setCustomValidity("Invalid field.");
           email.classList.add("is-invalid");
+          regBtn.disabled = true;
         } else {
           email.classList.remove("is-invalid");
+          regBtn.disabled = false;
           email.setCustomValidity("");
         }
       };
@@ -508,32 +559,38 @@
         const data = new FormData(event.target);
 
         const value = Object.fromEntries(data.entries());
-        if (value.branch != "" && value.college_email != "" && value.name != "" && value.personal_email != "" && value.phone != "" && value.year != "" && value.roll_no != "") {
+        if (value.branch != "" && typeof value.branch != undefined
+          && value.college_email != "" && typeof value.college_email != undefined
+          && value.name != "" && typeof value.name != undefined
+          && value.personal_email != "" && value.personal_email != undefined
+          && value.year != "" && value.year != undefined
+          && value.roll_no != "" && value.roll_no != undefined) {
           regBtn.disabled = false;
-          fetch(
-            "https://science-and-technology-club-e6uye89dc-nitya-s27.vercel.app/users/register",
-            {
-              method: "POST", // or 'PUT'
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(value),
-            }
-          )
-            .then((response) => response.json())
-            .then((data) => {
-              console.log({ value });
-              console.log("Success:", value);
-              $(document).ready(function () {
-                regBtn.onclick = function () {
-                  $('.toast').toast('show');
-                }
-              })
+          console.log([value.branch, value.college_email, value.name, value.personal_email, value.phone, value.year, value.roll_no]);
+          // fetch(
+          //   "https://science-and-technology-club-e6uye89dc-nitya-s27.vercel.app/users/register",
+          //   {
+          //     method: "POST", // or 'PUT'
+          //     headers: {
+          //       "Content-Type": "application/json",
+          //     },
+          //     body: JSON.stringify(value),
+          //   }
+          // )
+          //   .then((response) => response.json())
+          //   .then((data) => {
+          //     console.log("Success");
+          //     alert("Thanks for registering!");
+          //     $(document).ready(function () {
+          //       regBtn.onclick = function () {
+          //         $('.toast').toast('show');
+          //       }
+          //     })
 
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
+          //   })
+          //   .catch((error) => {
+          //     console.error("Error:", error);
+          //   });
         }
         else {
           // regBtn.disabled = true;
