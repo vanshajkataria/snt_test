@@ -567,30 +567,30 @@
           && value.roll_no != "" && value.roll_no != undefined) {
           regBtn.disabled = false;
           console.log([value.branch, value.college_email, value.name, value.personal_email, value.phone, value.year, value.roll_no]);
-          // fetch(
-          //   "https://science-and-technology-club-e6uye89dc-nitya-s27.vercel.app/users/register",
-          //   {
-          //     method: "POST", // or 'PUT'
-          //     headers: {
-          //       "Content-Type": "application/json",
-          //     },
-          //     body: JSON.stringify(value),
-          //   }
-          // )
-          //   .then((response) => response.json())
-          //   .then((data) => {
-          //     console.log("Success");
-          //     alert("Thanks for registering!");
-          //     $(document).ready(function () {
-          //       regBtn.onclick = function () {
-          //         $('.toast').toast('show');
-          //       }
-          //     })
+          fetch(
+            "https://science-and-technology-club-e6uye89dc-nitya-s27.vercel.app/users/register",
+            {
+              method: "POST", // or 'PUT'
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(value),
+            }
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success");
+              alert("Thanks for registering!");
+              // $(document).ready(function () {
+              //   regBtn.onclick = function () {
+              //     $('.toast').toast('show');
+              //   }
+              // })
 
-          //   })
-          //   .catch((error) => {
-          //     console.error("Error:", error);
-          //   });
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
         }
         else {
           // regBtn.disabled = true;
